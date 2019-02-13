@@ -23,8 +23,8 @@ public class InMemoryTimeEntryRepository implements  TimeEntryRepository {
     }
 
 
-    public TimeEntry find(long timeEntryId) {
-        return savedTimeEntires.get(timeEntryId);
+    public TimeEntry find(Long id) {
+        return savedTimeEntires.get(id);
     }
 
    /* public TimeEntry find(Long id) {
@@ -39,14 +39,14 @@ public class InMemoryTimeEntryRepository implements  TimeEntryRepository {
     }
 
     @Override
-    public TimeEntry update(long eq, TimeEntry any) {
-        if(savedTimeEntires.get(eq) != null){
-            TimeEntry entry =  savedTimeEntires.get(eq);
-            entry.projectId = any.projectId;
-            entry.date = any.date;
-            entry.userId = any.userId;
-            entry.hours = any.hours;
-            return savedTimeEntires.get(eq);
+    public TimeEntry update(Long id, TimeEntry timeEntry) {
+        if(savedTimeEntires.get(id) != null){
+            TimeEntry entry =  savedTimeEntires.get(id);
+            entry.projectId = timeEntry.projectId;
+            entry.date = timeEntry.date;
+            entry.userId = timeEntry.userId;
+            entry.hours = timeEntry.hours;
+            return savedTimeEntires.get(id);
         }else{
             /*TimeEntry entry = new TimeEntry();
             entry.id = eq;
@@ -61,7 +61,7 @@ public class InMemoryTimeEntryRepository implements  TimeEntryRepository {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(Long id) {
         TimeEntry entryToRemove = null;
         for(TimeEntry entry:savedTimeEntires.values()){
             if(entry.id == id){
