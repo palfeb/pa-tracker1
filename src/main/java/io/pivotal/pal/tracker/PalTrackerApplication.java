@@ -20,12 +20,9 @@ public class PalTrackerApplication {
         SpringApplication.run(PalTrackerApplication.class, args);
     }
 
-    @Value("${SPRING_DATASOURCE_URL}")
-    String mysqlDSURL;
+
     @Bean
     TimeEntryRepository timeEntryRepository(DataSource dataSource) {
-        //MysqlDataSource dataSource = new MysqlDataSource();
-        //dataSource.setUrl(System.getenv("SPRING_DATASOURCE_URL"));
         return new JdbcTimeEntryRepository(dataSource);
     }
 
