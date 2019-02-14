@@ -25,6 +25,7 @@ public class TimeEntryController {
 
         timeEntrySummary = meterRegistry.summary("timeEntry.summary");
         actionCounter = meterRegistry.counter("timeEntry.actionCounter");
+        System.out.println(actionCounter);
     }
 
     @PostMapping
