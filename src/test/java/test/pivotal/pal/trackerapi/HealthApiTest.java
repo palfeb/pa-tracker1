@@ -30,7 +30,7 @@ public class HealthApiTest {
         RestTemplateBuilder builder = new RestTemplateBuilder()
             .rootUri("http://localhost:" + port)
             .basicAuthorization("user", "password");
-
+        System.out.print(builder);
         restTemplate = new TestRestTemplate(builder);
     }
 
